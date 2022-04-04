@@ -1,0 +1,35 @@
+<?php
+
+use App\Console\Command;
+
+return [
+    'dependencies' => [
+        'factories' => [
+            Command\FixtureCommand::class => Infrastructure\App\Console\Command\FixtureCommandFactory::class,
+        ],
+    ],
+
+    'console' => [
+        'commands' => [
+            Command\FixtureCommand::class,
+        ],
+    ],
+
+    'doctrine' => [
+        'configuration' => [
+            'orm_default' => [
+                'result_cache' => 'array',
+                'metadata_cache' => 'array',
+                'query_cache' => 'array',
+                'hydration_cache' => 'array',
+            ],
+        ],
+        'driver' => [
+            'entities' => [
+                'cache' => 'array',
+            ],
+        ],
+    ],
+
+    'debug' => true,
+];
